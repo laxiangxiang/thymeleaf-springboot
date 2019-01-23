@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8" http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>被包含的页面</title>
+</head>
+<body>
+<footer th:fragment="footer1">
+    <p>All Rights Reserved</p>
+</footer>
+<footer th:fragment="footer2(start,now)">
+    <p th:text="|${start} - ${now} All Rights Reserved|"></p>
+</footer>
+</body>
+</html>

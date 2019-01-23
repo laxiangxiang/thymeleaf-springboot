@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>hello 不错吧</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../../webapp/static/css/style.css" th:href="@{/static/css/style.css}"/>
+    <script type="text/javascript" src="../../webapp/static/js/thymeleaf.js" th:src="@{/static/js/thymeleaf.js}"></script>
+    <script>
+        testFunction();
+    </script>
+</head>
+<body>
+<div class="showing">
+    <p class="odd" th:text="|Hello！ ${name}!|" >hello world</p>
+    <p class="even" th:text="${name}">name</p>
+    <p class="odd" th:text="|Hello！ ${name}!|" >hello world</p>
+    <p class="even" th:text="'Hello!'+${name}+'!'">hello发的 world</p>
+    <p class="odd" th:text="|Hello！ ${name}!|" >hello world</p>
+    <p class="even" th:text="|Hello! ${name}!|"> 鼓腹含和大的 好过分过分过分的话</p>
+</div>
+</body>
+</html>

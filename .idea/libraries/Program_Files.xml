@@ -1,0 +1,24 @@
+<component name="libraryTable">
+  <library name="Program Files">
+    <CLASSES>
+      <root url="file://C:/Program Files" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://C:/Program Files/erl8.0/lib/ic-4.4.1/doc/html/java" />
+      <root url="file://C:/Program Files/erl8.0/lib/jinterface-1.7/doc/html/java" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://C:/Program Files/apache-tomcat-9.0.0.M1/webapps/docs/appdev/sample/src" />
+      <root url="file://C:/Program Files/apache-tomcat-9.0.0.M1/webapps/examples/WEB-INF/classes" />
+      <root url="file://C:/Program Files/apache-tomcat-9.0.0.M1/webapps/examples/WEB-INF/jsp/applet" />
+      <root url="file://C:/Program Files/apache-tomcat-9.0.0.M1/webapps/examples/jsp/plugin/applet" />
+      <root url="file://C:/Program Files/apache-tomcat-9.0.0.M1/work/Catalina/localhost/ROOT" />
+      <root url="file://C:/Program Files/apache-tomcat-9.0.0.M1/work/Catalina/localhost/manager" />
+      <root url="file://C:/Program Files/erl8.0/lib/ic-4.4.1/examples/all-against-all" />
+      <root url="file://C:/Program Files/erl8.0/lib/ic-4.4.1/examples/java-client-server" />
+      <root url="file://C:/Program Files/erl8.0/lib/ic-4.4.1/java_src" />
+      <root url="file://C:/Program Files/erl8.0/lib/jinterface-1.7/java_src" />
+      <root url="file://C:/Program Files/erl8.0/lib/orber-3.8.2/java_src" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.how2java.springboot.mapper.HeroMapper">
+    <resultMap id="BaseResultMap" type="com.how2java.springboot.pojo.Hero">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="hp" property="hp" jdbcType="FLOAT"/>
+    </resultMap>
+
+    <select id="get" parameterType="integer" resultMap="BaseResultMap">
+        SELECT * from hero where id=#{id}
+    </select>
+
+    <select id="list" resultMap="BaseResultMap">
+        SELECT * FROM hero
+    </select>
+
+    <delete id="delete" parameterType="integer">
+        DELETE FROM hero WHERE id=#{id}
+    </delete>
+
+    <update id="update" parameterType="com.how2java.springboot.pojo.Hero">
+        UPDATE hero SET name=#{name},hp=#{hp} where id=#{id}
+    </update>
+
+    <insert id="add" parameterType="com.how2java.springboot.pojo.Hero">
+        INSERT INTO hero (name,hp) VALUES (#{name},#{hp})
+    </insert>
+
+</mapper>

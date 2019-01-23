@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8" http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>test</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../../webapp/static/css/style.css" th:href="@{/static/css/style.css}"/>
+    <script type="text/javascript" src="../../webapp/static/js/thymeleaf.js" th:src="@{/static/js/thymeleaf.js}"/>
+    <script>
+        testFunction();
+    </script>
+</head>
+<body>
+<div class="showing">
+    <p th:text="${name}">name</p>
+    <p th:text="'hello!'+${name}+'!'">hello world</p>
+    <p th:text="|hello! ${name}!|">hahahh</p>
+    <h2>显示 转义和非转义的 html 文本</h2>
+    <p th:text="${htmlContent}"></p>
+    <p th:utext="${htmlContent}"></p>
+</div>
+<div class="showing">
+    <h2>显示对象以及对象属性</h2>
+    <p th:text="${currentProduct}"></p>
+    <p th:text="${currentProduct.name}"></p>
+    <p th:text="${currentProduct.getName()}"></p>
+</div>
+<div class="showing">
+    <h2>*{}方式显示属性</h2>
+    <p th:text="*{name}"></p>
+</div>
+<div class="showing">
+    <h2>算数运算</h2>
+    <p th:text="${currentProduct.price+999}"></p>
+</div>
+<div class="showing">
+    <h2>条件判断</h2>
+    <!--不只是布尔值的 true 和 false, th:if 表达式返回其他值时也会被认为是 true 或 false，规则如下:-->
+    <!--boolean 类型并且值是 true, 返回 true-->
+    <!--数值类型并且值不是 0, 返回 true-->
+    <!--字符类型(Char)并且值不是 0, 返回 true-->
+    <!--String 类型并且值不是 "false", "off", "no", 返回 true-->
+    <!--不是 boolean, 数值, 字符, String 的其他类型, 返回 true-->
+    <p th:if="${testBoolean}">如果testBoolean是true,本句话就会显示</p>
+    <p th:if="${not testBoolean}">取反 ，所以如果testBoolean 是 true ，本句话就不会显示</p>
+    <p th:unless="${testBoolean}">unless 等同于上一句，所以如果testBoolean 是 true ，本句话就不会显示</p>
+    <p th:text="${testBoolean}?'当testBoolean为真的时候，显示本句话，这是用三相表达式做的':''"></p>
+</div>
+<div class="showing">
+    <h2>遍历</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>产品名称</th>
+            <th>价格</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p:${ps}">
+            <td th:text="${p.id}"></td>
+            <td th:text="${p.name}"></td>
+            <td th:text="${p.price}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <h2>带状态遍历</h2>
+    <!--status里还包含了如下信息：-->
+    <!--index 属性, 0 开始的索引值-->
+    <!--count 属性, 1 开始的索引值-->
+    <!--size 属性, 集合内元素的总量-->
+    <!--current 属性, 当前的迭代对象-->
+    <!--even/odd 属性, boolean 类型的, 用来判断是否是偶数个还是奇数个-->
+    <!--first 属性, boolean 类型, 是否是第一个-->
+    <!--last 属性, boolean 类型, 是否是最后一个-->
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>产品名称</th>
+            <th>价格</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p,status:${ps}">
+            <td th:class="${status.even}?'even':'odd'" th:text="${p.id}"></td>
+            <td th:class="${status.even}?'even':'odd'" th:text="${p.name}"></td>
+            <td th:class="${status.even}?'even':'odd'" th:text="${p.price}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <h2>结合select遍历</h2>
+    <select size="3">
+        <option th:each="p:${ps}" th:value="${p.id}"
+                th:selected="${p.id==currentProduct.id}"
+                th:text="${p.name}"></option>
+    </select>
+    <h2>结合单选框</h2>
+    <input name="product" type="radio" th:each="p:${ps}" th:value="${p.id}"
+     th:checked="${p.id==currentProduct.id}" th:text="${p.name}"/>
+</div>
+<div class="showing date">
+    <h2>格式化日期</h2>
+    直接输出日期 ${now}:
+    <p th:text="${now}"></p>
+    默认格式化 ${#dates.format(now)}:
+    <p th:text="${#dates.format(now)}"></p>
+    自定义格式化 ${#dates.format(now,'yyyy-MM-dd HH:mm:ss')}:
+    <p th:text="${#dates.format(now,'yyyy-MM-dd HH:mm:ss')}"></p>
+</div>
+<div class="showing">
+    <p th:replace="include::footer1"></p>
+    <div th:replace="include::footer2(2015,2018)"></div>
+</div>
+
+</body>
+</html>
